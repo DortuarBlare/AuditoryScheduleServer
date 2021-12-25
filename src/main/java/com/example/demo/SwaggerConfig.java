@@ -13,8 +13,8 @@ import springfox.documentation.spring.web.plugins.Docket;
 public class SwaggerConfig {
 
     private final String CONTROLLERS_PACKAGE_PATH = "com.example.demo";
-    private final String API_TITLE = "Exam REST API";
-    private final String API_DESCRIPTION = "Remote exam delivery service";
+    private final String API_TITLE = "Auditory Schedule REST API";
+    private final String API_DESCRIPTION = "Performed by Vygulyarnaya and Yaroslavtsev from AVT-815";
     private final String API_LICENSE = "© NSTU 2021";
 
     @Bean

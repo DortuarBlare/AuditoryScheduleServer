@@ -1,6 +1,7 @@
 package com.example.demo.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -12,26 +13,26 @@ public class Schedule implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_auditory")
-    @JsonBackReference
+    @JsonManagedReference
     private Auditory auditory;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_group")
-    @JsonBackReference
+    @JsonManagedReference
     private Group group;
 
     private int week;
 
     @ManyToOne
     @JoinColumn(name = "id_day")
-    @JsonBackReference
+    @JsonManagedReference
     private Day day;
 
     @ManyToOne
     @JoinColumn(name = "id_time")
-    @JsonBackReference
+    @JsonManagedReference
     private Time time;
 
     public Schedule() {}
