@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -24,6 +25,7 @@ public class Auditory implements Serializable {
 
     public Auditory(String auditory) {
         this.auditory = auditory;
+        schedules = new ArrayList<>();
     }
 
     public int getId() {
@@ -34,11 +36,11 @@ public class Auditory implements Serializable {
         this.id = id;
     }
 
-    public String getAuditory() {
+    public String getAuditoryName() {
         return auditory;
     }
 
-    public void setAuditory(String auditory) {
+    public void setAuditoryName(String auditory) {
         this.auditory = auditory;
     }
 

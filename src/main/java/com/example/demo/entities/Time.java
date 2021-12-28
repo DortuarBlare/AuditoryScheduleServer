@@ -1,11 +1,7 @@
 package com.example.demo.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 @Table (name = "time_")
@@ -14,19 +10,15 @@ public class Time implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String start_time;
-    private String end_time;
-
-    @OneToMany(mappedBy = "time", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonBackReference
-    private List<Schedule> schedules;
+    private String startTime;
+    private String endTime;
 
     public Time() {}
 
     public Time(String start_time, String end_time) {
         this.id = timeToIdTime(start_time, end_time);
-        this.start_time = start_time;
-        this.end_time = end_time;
+        this.startTime = start_time;
+        this.endTime = end_time;
     }
 
     private int timeToIdTime(String startTime, String endTime) {
@@ -44,32 +36,24 @@ public class Time implements Serializable {
         return id;
     }
 
-    public String getStart_time() {
-        return start_time;
+    public String getStartTime() {
+        return startTime;
     }
 
-    public void setStart_time(String start_time) {
-        this.start_time = start_time;
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
     }
 
-    public String getEnd_time() {
-        return end_time;
+    public String getEndTime() {
+        return endTime;
     }
 
-    public void setEnd_time(String end_time) {
-        this.end_time = end_time;
-    }
-
-    public List<Schedule> getSchedules() {
-        return schedules;
-    }
-
-    public void setSchedules(List<Schedule> schedules) {
-        this.schedules = schedules;
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
     @Override
     public String toString() {
-        return start_time + " - " + end_time;
+        return startTime + " - " + endTime;
     }
 }

@@ -1,10 +1,10 @@
 package com.example.demo.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -24,6 +24,7 @@ public class Group implements Serializable {
 
     public Group(String group_) {
         this.group_ = group_;
+        schedules = new ArrayList<>();
     }
 
     public int getId() {
@@ -34,11 +35,11 @@ public class Group implements Serializable {
         this.id = id;
     }
 
-    public String getGroup_() {
+    public String getGroupName() {
         return group_;
     }
 
-    public void setGroup_(String group_) {
+    public void setGroupName(String group_) {
         this.group_ = group_;
     }
 

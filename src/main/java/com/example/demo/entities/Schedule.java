@@ -1,24 +1,23 @@
 package com.example.demo.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table (name = "schedule")
+@Table(name = "schedule")
 public class Schedule implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "id_auditory")
     @JsonManagedReference
     private Auditory auditory;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "id_group")
     @JsonManagedReference
     private Group group;
@@ -96,10 +95,10 @@ public class Schedule implements Serializable {
     @Override
     public String toString() {
         return
-                auditory.getAuditory() + "\n" +
-                group.getGroup_() + "\n" +
-                week + "\n" +
-                day.getDay() + "\n" +
-                time.toString() + "\n";
+                auditory.getAuditoryName() + "\n" +
+                        group.getGroupName() + "\n" +
+                        week + "\n" +
+                        day.getDay() + "\n" +
+                        time.toString() + "\n";
     }
 }

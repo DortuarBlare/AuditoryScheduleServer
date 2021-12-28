@@ -16,10 +16,6 @@ public class Day implements Serializable {
 
     private String day;
 
-    @OneToMany(mappedBy = "day", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonBackReference
-    private List<Schedule> schedules;
-
     public Day() {}
 
     public Day(String day) {
@@ -48,14 +44,6 @@ public class Day implements Serializable {
 
     public void setDay(String day) {
         this.day = day;
-    }
-
-    public List<Schedule> getSchedules() {
-        return schedules;
-    }
-
-    public void setSchedules(List<Schedule> schedules) {
-        this.schedules = schedules;
     }
 
     @Override
